@@ -1,0 +1,6 @@
+.adwork-related-posts{
+    margin-top: 0;
+}
+.adwork-related-posts .latestPost:last-child{
+    margin-right: 0;
+}

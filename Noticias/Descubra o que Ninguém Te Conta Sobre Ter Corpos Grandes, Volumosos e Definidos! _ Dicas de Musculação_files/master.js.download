@@ -1,0 +1,66 @@
+var $ = jQuery.noConflict();
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i].trim();
+        if (c.indexOf(name) == 0)
+            return c.substring(name.length, c.length);
+    }
+    return "";
+}
+function boxMail(){
+    $("#calltoaction2, #overlay2, #close-over, #info-calltoaction").fadeIn("slow",function() {
+        $("#close-over").show();
+        if(screen.width > 990)
+            $("#info-calltoaction").show();
+    });  
+    document.cookie = 'boxmail=exibido';  
+}
+function openBoxMail(wait){
+    wait = typeof wait !== 'undefined' ? wait : 30;
+    var boxmail = getCookie("boxmail");
+
+    if(boxmail == ""){
+        setTimeout(boxMail, wait*1000);
+    }
+}
+function closeBoxMail(){
+    $("#calltoaction2, #overlay2, #close-over, #info-calltoaction").hide();
+}
+$(document).ready(function(){
+	var popup = getCookie("popup");
+
+    if (popup == "") {
+        $('#overlay').fadeIn('fast', function() {
+            $('#box').animate({
+                'top': '160px'
+            }, 500);
+        });
+        $('#boxclose').click(function() {
+            $('#box').animate({
+                'top': '-500px'
+            }, 200, function() {
+                $('#overlay').fadeOut('fast');
+            });
+            openBoxMail();
+        });
+        $('#overlay').click(function() {
+            $('#boxclose').click();
+        });
+        $(document).keyup(function(e) {
+            $('#boxclose').click();
+        });
+        document.cookie = 'popup=exibido';
+    }
+    $("#close-over a").click(function(){
+        closeBoxMail();
+    });
+    /*
+    $('.sidebar').hcSticky({
+        top: 40,
+        innerSticker: '#ads-fixo',
+        followScroll: false
+    });
+    */
+})

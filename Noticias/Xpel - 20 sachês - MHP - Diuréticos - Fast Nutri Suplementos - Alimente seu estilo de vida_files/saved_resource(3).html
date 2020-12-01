@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!-- saved from url=(0114)http://www.fastnutri.com.br/produto/18-xpel-20-saches-mhp?utm_source=DDM&utm_medium=native&utm_campaign=xpel_secar -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ 
+<link href="./css(1)" rel="stylesheet">
+  <style type="text/css">
+    .widget-vistos {
+      /*height: 58px;*/
+      height: 0;
+      opacity: 0;
+      overflow: hidden;
+      position: fixed;
+      right: 0;
+      bottom: 0;
+    }
+    .widget-vistos-inner {
+        background: url(https://static.sback.tech/shopconvert/uploads/imagens/fast-nutri/estoque/bg-new.png);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        color: #f38131;
+        font-family: 'Lato', Arial, sans-serif;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 17px;
+        text-align: center;
+        position: relative;
+        padding: 22px 0 0 8px;
+        margin: 0 auto;
+        width: 252px;
+        height: 45px;
+        text-align: center;
+    }
+   .widget-vistos-inner strong {
+      color: #f38131;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+<div id="block" class="widget-vistos">
+<p class="widget-vistos-inner"><strong id="text1">AINDA TEMOS EM ESTOQUE</strong> <br> APROVEITE E COMPRE AGORA</p>
+</div>
+<script src="./jquery.min.js.download"></script>
+<script type="text/javascript">// <![CDATA[
+// top.spl.show_views();
+  // window.parent.document.getElementById('f-content-5096').style.position='absolute';
+  // window.parent.document.getElementById('f-content-5096').style.width='325px';
+  // window.parent.document.getElementById('f-content-5096').style.height='58px';
+  // window.parent.document.getElementById("f-content-5096").style.right="inherit";
+  // window.parent.document.getElementById("f-content-5096").style.bottom="inherit";
+$(function(){
+  $("#f-content-5096", window.parent.document).css({
+    position: "absolute",
+    width: "400px",
+    height: "70px",
+    right: "30px",
+    bottom: "inherit"
+  });
+
+  var random = Math.floor((Math.random() * 10) + 1);
+  $("#number").html(random);
+
+  var position = $(".btn.btn-large.btn-primary.btn-purchase.track_event", window.parent.document).offset();
+  if(!position){
+    $(".btn.btn-large.btn-primary.btn-purchase.track_event", window.parent.document).position();
+  }
+
+  var positionSet = setInterval(function(){
+    var position = $(".btn.btn-large.btn-primary.btn-purchase.track_event", window.parent.document).offset();
+    if(!position){
+      $(".btn.btn-large.btn-primary.btn-purchase.track_event", window.parent.document).position();
+    }else if(position){
+      clearInterval(positionSet);
+    }
+  },50);
+
+  console.log(position+" | "+$(".btn.btn-large.btn-primary.btn-purchase.track_event", window.parent.document).position()+" | "+$(".btn.btn-large.btn-primary.btn-purchase.track_event", window.parent.document).offset());
+    var postitionTwo = false;
+    $(".btn.btn-large.btn-primary.btn-purchase.track_event", window.parent.document).mouseenter(function(){
+        $("#f-content-5096", window.parent.document).css({
+          left: position.left - $(".btn.btn-large.btn-primary.btn-purchase.track_event", window.parent.document).innerWidth() - 5,
+          top: position.top + 60
+        });
+          $("#f-content-5096", window.parent.document).css({
+            display: "block"
+          });
+          $( "#block" ).animate({
+            opacity: 1,
+            height: 70
+          }, 600);
+          postitionTwo = true;
+      }).mouseleave(function(){
+        // clearInterval(Opens);
+          postitionTwo = true;
+          $(this).mouseenter(function(){postitionTwo = false;});
+          setTimeout(function(){
+            if (postitionTwo) {
+              $( "#block" ).animate({
+                opacity: 0,
+                height: 0
+              }, 1000, function() {
+                $("#f-content-5096", window.parent.document).css({
+                  display: "none"
+                });
+              });
+            }
+          },1000);
+
+});
+
+});
+
+  $(window.parent).resize(function() {
+    $("f-content-5096", window.parent.document).css({
+        left: position.left - $(".btn.btn-large.btn-primary.btn-purchase.track_event", window.parent.document).innerWidth(),
+        top: position.top + 70
+    });
+   });
+// ]]></script>
+
+</body></html>

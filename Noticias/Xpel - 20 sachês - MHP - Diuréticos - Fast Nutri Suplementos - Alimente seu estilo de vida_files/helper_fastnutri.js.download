@@ -1,0 +1,39 @@
+var _st_page = false;
+
+if (document.querySelector('h1.title-page-product') !== null) {
+
+    _view = {
+        url: location.href.split('?')[0]
+    };
+    
+    try {
+        _st_app.vp(_view);
+    } catch (e) {}
+
+} else if (location.pathname === "/checkout") {
+
+    _st_page = 'cart';
+
+    var _st_cart = {
+        id: [],
+        qty: []
+    };
+
+    var itens = document.querySelectorAll('tr.item');
+
+    var qtds = document.querySelectorAll('tr.item .input-quantity');
+
+    for(i = 0; i < itens.length; i++)
+    {
+        _st_cart.id.push(itens[i].getAttribute('data-identifier').match(/"sku_id":\s*([0-9]+)/)[1]);
+        _st_cart.qty.push(qtds[i].value);
+    }
+
+    if (_st_cart.id.length > 0) {
+        _st_app.send_cart(_st_cart);
+    }
+} else if (location.pathname.indexOf('/checkout/novo-pedido/') > -1) {
+    _st_page = 'confirmation';
+}
+
+_st_app.set_page(_st_page);

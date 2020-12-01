@@ -1,0 +1,80 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+#adw_display{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 99999;
+}
+#adw_display *{
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+#adw_display a{
+    text-decoration: none;
+}
+#adw_display a:hover{
+    text-decoration: underline;
+}
+#adw_close{
+    margin-bottom: 4px;
+    padding: 0;
+    padding-right: 10px;
+    overflow: auto;
+    zoom: 1;
+    text-align: right;
+}
+#adw_close img {
+    cursor: pointer;
+}
+#adw_produtos-container{
+    max-width: 1148px;
+    padding: 5px;
+    margin: 0 auto;
+    background-color: #FFF;
+    box-shadow: 0 0 5px #000;
+    overflow: auto;
+    zoom: 1;
+}
+.adw_produto{
+    float: left;
+    border-right: 1px solid #DDD;
+    width: 25%;
+    padding: 0 5px;
+}
+.adw_produto:last-child{
+    border-right: none;
+}
+.adw_titulo{
+    font-size: 13px;
+    color: #333;
+    font-weight: bold;
+    padding-left: 10px;
+}
+.adw_produto img {
+    float: left;
+    margin-right: 5px;
+    padding-right: 5px;
+    width: 100px;
+    height: 75px;
+}
+#adw_produtos {
+    background-image: url('http://127.0.0.1/adwork/images/bg_ads.png');
+    overflow: auto;
+    zoom: 1;
+}
+
+@media (max-width: 768px){
+    .adw_produto{
+        display: none;
+    }
+    .adw_produto:first-child{
+        width: 100%;
+        margin: 0 auto;
+        display: block;
+        border-right: none;
+    }
+}
